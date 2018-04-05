@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3 col-xs-offset-4 .col-xs-10 panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Links already registred</h3>
+            </div>
+            <div class="panel-body">
+                <table class="table">
+                    <tr>
+                        <th></th>
+                        <th>Refresh</th>
+                        <th>Screen name</th>
+                    </tr>
+                    {% for config in configs %}
+                      <tr>
+                          <td>
+                              <span class="glyphicon glyphicon-remove cross"></span>
+                          </td>
+                          <td>{{config.refresh_every}}mn</td>
+                          <td>{{config.screen_name}}</td>
+                      </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+    </div>
+
+     <div class="row">
+        <div class="col-md-6 col-md-offset-3 col-xs-offset-4 .col-xs-10 panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Link twitter account</h3>
+            </div>
+            <form id="linkAccount" class="panel-body">
+                <a href="/twitterRegister" target="_blank">Click here to obtain your pin code</a> And put the given pin code in the box below.<br/>
+
+                <input type="text" name="pin" class="form-control" placeholder="Pin code">
+                <input type="submit" class="btn btn-default">
+            </form>
+        </div>
+    </div>
+
+    <div class="row">
+       <div class="col-md-6 col-md-offset-3 col-xs-offset-4 .col-xs-10 panel panel-default">
+           <div class="panel-heading">
+               <h3 class="panel-title">Follow twitter account</h3>
+           </div>
+           <form id="twitterFollow" class="panel-body">
+               <input type="text" name="screen_name" class="form-control" placeholder="Screen name">
+               <input type="number" name="refresh_every" class="form-control" value="60">
+               <input type="submit" class="btn btn-default">
+           </form>
+       </div>
+    </div>
+
+{% endblock %}

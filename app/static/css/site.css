@@ -1,0 +1,54 @@
+html, body
+{
+    height: 100%;
+    font-size: 12px; 
+    font-family: Helvetica, sans-serif;
+}
+
+p { 
+    font-size: 1em; 
+    line-height: 1.5000em;
+    margin: 0 0 1.5000em 0; 
+}
+
+blockquote {
+    font-size: 1em; 
+    /*font-weight: bold;*/
+}
+
+
+.thumb{
+    max-height: 64px;
+    max-width: 64px;
+}
+
+.notifPanel {
+    margin: 4px;
+
+}
+
+.fixedPanel{
+    position: fixed;
+    left: 15px;
+}
+
+.cross{
+    cursor:pointer;
+}
+
+.highlight {
+    margin-left: 20px;
+}
+
+.highlightImage{
+    border: 1px solid grey;
+}
+
+.twitterMedia{
+    height: 150px;
+    width: 150px;
+}
+
+.twitterMedia img{
+    margin:3px;
+}

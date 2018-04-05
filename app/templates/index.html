@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="modal" v-bind:class="{ active: isActiveModal }">
+  <div class="modal-overlay"></div>
+  <div class="modal-container">
+    <div class="modal-header">
+      <button class="btn btn-clear float-right" @click="isActiveModal = false"></button>
+      <div class="modal-title">Modal title</div>
+    </div>
+    <div class="modal-body">
+      <div class="content">
+          <div class="panel-heading">
+             <h3 class="panel-title">Follow twitter account</h3>
+         </div>
+
+             <input type="text" v-model="formFollow" placeholder="Screen name">
+             <input type="number" v-model="formRefresh">
+             <button v-on:click="followUsername">Follow</button>
+
+      </div>
+    </div>
+<!--       <div class="modal-footer">
+
+    </div> -->
+  </div>
+</div>
+
+<div class="container">
+  {% for notif in notifs %}
+    <div class="columns">
+      <div class="column col-3"></div>
+      <div class="column col-6">
+        <div class="tile">
+          <div class="tile-icon">
+            {% if notif.sender_avatar %}
+              <figure class="avatar avatar-xl">
+                <img src="{{ notif.sender_avatar }}" />
+              </figure>
+            {% endif %}
+          </div>
+          <div class="tile-content">
+            <p class="tile-title">{{ notif.sender }}</p>
+            <p class="tile-subtitle">
+              {% if notif.body %}
+                {{ notif.body }}
+              {% endif %}
+            </p>
+            {% if notif.url %}
+              <a href="{{ notif.url }}" target="_blank">#</a>
+            {% endif %}
+
+
+            {% for media in notif.medias %}
+              <a class="twitterMedia" href="{{ media.url }}:large" target="_blank" data-origin="{{media.origin_id}}">
+                <img src="{{ media.url }}:thumb"/>
+              </a>
+            {% endfor %}
+
+  <!--      <p>
+              <button class="btn btn-primary btn-sm">Join</button>
+              <button class="btn btn-sm">Contact</button>
+            </p> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  {% endfor %}
+</div>
+
+
+
+{% endblock %}
